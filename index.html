@@ -1,0 +1,1207 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fff9f0">
+  <title>a little something for nie ♡</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --lavender: #D9C9EB;
+  --wisteria: #B9A1D4;
+  --burgundy: #682C46;
+  --yellow: #F5E9A9;
+  --cream: #FFF9F0;
+  --brown: #8B766C;
+  --ink: #3F3436;
+  --paper: #FFFCF7;
+  --line: #E9DED4;
+  --serif: "Playfair Display", Georgia, serif;
+  --sans: "DM Sans", Arial, sans-serif;
+  --hand: "Caveat", cursive;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--sans);
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+button { font: inherit; }
+.hidden { display: none !important; }
+
+.welcome {
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: 34px 22px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  background:
+    radial-gradient(ellipse at 12% 18%, rgba(217,201,235,.36), transparent 28%),
+    radial-gradient(ellipse at 88% 82%, rgba(245,233,169,.30), transparent 27%),
+    var(--cream);
+}
+
+.welcome-inner {
+  max-width: 620px;
+  position: relative;
+  z-index: 1;
+}
+
+.eyebrow {
+  color: var(--brown);
+  font-size: .72rem;
+  letter-spacing: .19em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+h1, h2, h3 {
+  font-family: var(--serif);
+  font-weight: 500;
+}
+
+.welcome h1 {
+  color: var(--burgundy);
+  font-size: clamp(3.7rem, 11vw, 7.5rem);
+  line-height: 1.02;
+  letter-spacing: -.055em;
+  margin: 22px 0 18px;
+}
+
+.welcome p {
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
+  color: var(--brown);
+  margin: 0 auto 9px;
+}
+
+.date {
+  font-size: .82rem !important;
+  letter-spacing: .16em;
+  color: var(--burgundy) !important;
+  margin-top: 25px !important;
+}
+
+.primary-btn {
+  margin-top: 32px;
+  border: 1px solid var(--burgundy);
+  color: var(--cream);
+  background: var(--burgundy);
+  border-radius: 999px;
+  padding: 14px 23px;
+  cursor: pointer;
+  transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
+  box-shadow: 4px 5px 0 rgba(104,44,70,.12);
+}
+
+.primary-btn:hover {
+  transform: translateY(-3px);
+  background: #7b3855;
+  box-shadow: 4px 8px 0 rgba(104,44,70,.12);
+}
+
+.primary-btn:focus-visible,
+.reveal-card:focus-visible {
+  outline: 3px solid var(--wisteria);
+  outline-offset: 4px;
+}
+
+.welcome-flower {
+  width: 88px;
+  height: 88px;
+  margin: 0 auto 12px;
+  position: relative;
+  animation: gentleTurn 18s linear infinite;
+}
+
+.welcome-flower i {
+  position: absolute;
+  width: 22px;
+  height: 35px;
+  left: 33px;
+  top: 8px;
+  border-radius: 80% 80% 45% 45%;
+  background: var(--wisteria);
+  transform-origin: 50% 36px;
+}
+
+.welcome-flower i:nth-child(2) {
+  transform: rotate(60deg);
+  background: #c9b4df;
+}
+
+.welcome-flower i:nth-child(3) {
+  transform: rotate(120deg);
+  background: var(--lavender);
+}
+
+.welcome-flower i:nth-child(4) {
+  transform: rotate(180deg);
+  background: #c9b4df;
+}
+
+.welcome-flower i:nth-child(5) {
+  transform: rotate(240deg);
+  background: var(--lavender);
+}
+
+.welcome-flower i:nth-child(6) {
+  transform: rotate(300deg);
+  background: var(--wisteria);
+}
+
+.welcome-flower b {
+  position: absolute;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  background: var(--yellow);
+  top: 34px;
+  left: 35px;
+  border: 2px solid var(--cream);
+}
+
+.tiny-star {
+  position: absolute;
+  color: var(--wisteria);
+  font-family: var(--serif);
+  font-size: 24px;
+  opacity: .75;
+}
+
+.star-a { top: 18%; left: 17%; }
+.star-b {
+  bottom: 19%;
+  right: 15%;
+  font-size: 18px;
+  color: #c2a84d;
+}
+
+.site {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+
+.site.visible {
+  opacity: 1;
+  transform: none;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px clamp(18px, 5vw, 70px);
+  background: rgba(255,249,240,.94);
+  border-bottom: 1px solid rgba(139,118,108,.15);
+  backdrop-filter: blur(10px);
+}
+
+.brand {
+  font-family: var(--serif);
+  color: var(--burgundy);
+  font-size: 1.1rem;
+  text-decoration: none;
+}
+
+.topbar small {
+  color: var(--brown);
+  font-size: .72rem;
+  letter-spacing: .08em;
+}
+
+main {
+  width: min(100% - 42px, 940px);
+  margin: 0 auto;
+}
+
+section:not(.welcome) {
+  padding: clamp(74px, 11vw, 126px) 0;
+  border-bottom: 1px solid var(--line);
+  scroll-margin-top: 65px;
+}
+
+.section-kicker {
+  color: var(--brown);
+  text-transform: uppercase;
+  letter-spacing: .17em;
+  font-size: .68rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+h2 {
+  color: var(--burgundy);
+  font-size: clamp(2.35rem, 6vw, 4rem);
+  line-height: 1.12;
+  letter-spacing: -.035em;
+  margin: 0 0 28px;
+}
+
+.intro {
+  color: var(--brown);
+  max-width: 570px;
+  margin: -12px 0 34px;
+}
+
+/* Birthday letter */
+
+.letter-wrap {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.letter {
+  position: relative;
+  padding: clamp(27px, 6vw, 54px);
+  background: var(--paper);
+  border: 1px solid #eee4d9;
+  box-shadow: 0 12px 35px rgba(88,62,56,.055);
+  transform: rotate(-.35deg);
+}
+
+.letter:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 35px;
+  right: 35px;
+  height: 4px;
+  background: var(--lavender);
+}
+
+.letter p { margin: 0 0 17px; }
+
+.letter .salutation {
+  font-family: var(--serif);
+  color: var(--burgundy);
+  font-size: 1.45rem;
+}
+
+.editable {
+  display: block;
+  min-height: 130px;
+  padding: 13px 14px;
+  margin: 20px 0;
+  border: 1px dashed #cbb9d9;
+  border-radius: 8px;
+  background: #fcf9ff;
+  color: #6d5c68;
+  outline: none;
+  white-space: pre-wrap;
+}
+
+.editable:focus {
+  border-style: solid;
+  box-shadow: 0 0 0 3px rgba(185,161,212,.18);
+}
+
+.editable:empty:before {
+  content: attr(data-placeholder);
+  color: #a895a1;
+}
+
+.signature {
+  color: var(--burgundy);
+  font: 600 1.8rem var(--hand);
+  margin-top: 20px;
+}
+
+/* Fact file */
+
+.fact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 14px;
+}
+
+.fact-card {
+  background: rgba(255,255,255,.48);
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  padding: 22px 23px;
+  transition: transform .2s, border-color .2s, background .2s;
+}
+
+.fact-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--wisteria);
+  background: #fffdfb;
+}
+
+.fact-card h3 {
+  color: var(--burgundy);
+  font-size: 1.35rem;
+  margin: 0 0 14px;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  border: 1px solid #e7ddec;
+  color: #66536a;
+  background: #f7f1fb;
+  border-radius: 999px;
+  padding: 6px 11px;
+  font-size: .82rem;
+  transition: background .2s, color .2s, transform .2s;
+}
+
+.tag:hover {
+  background: var(--lavender);
+  color: var(--burgundy);
+  transform: translateY(-2px);
+}
+
+.fact-card:nth-child(2) .tag {
+  background: #fff9e5;
+  border-color: #efe3b7;
+  color: #75643b;
+}
+
+.fact-card:nth-child(2) .tag:hover {
+  background: var(--yellow);
+}
+
+.fact-card:nth-child(3) .tag {
+  background: #f9eff2;
+  border-color: #ead5dc;
+  color: var(--burgundy);
+}
+
+.fact-card:nth-child(4) .tag {
+  background: #f1edf7;
+}
+
+.fact-card:nth-child(5) {
+  grid-column: 1 / -1;
+}
+
+/* Flower illustration */
+
+.flower-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(25px, 6vw, 70px);
+  align-items: center;
+}
+
+.flower-art {
+  min-height: 360px;
+  position: relative;
+  display: grid;
+  place-items: center;
+  background: #f7f0fa;
+  border-radius: 48% 48% 12px 12px / 35% 35% 12px 12px;
+  overflow: hidden;
+}
+
+.flower-art:after {
+  content: "";
+  position: absolute;
+  width: 210px;
+  height: 210px;
+  border: 1px solid rgba(185,161,212,.32);
+  border-radius: 50%;
+}
+
+.stems {
+  position: absolute;
+  width: 2px;
+  height: 210px;
+  background: #9a9c72;
+  bottom: 42px;
+  left: 50%;
+  transform: rotate(7deg);
+  transform-origin: bottom;
+}
+
+.stems:before,
+.stems:after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 22px;
+  background: #b5b98c;
+  border-radius: 100% 0 100% 0;
+}
+
+.stems:before {
+  top: 105px;
+  left: -45px;
+  transform: rotate(20deg);
+}
+
+.stems:after {
+  top: 145px;
+  left: 0;
+  transform: rotate(195deg);
+}
+
+.bloom {
+  position: absolute;
+  width: 145px;
+  height: 145px;
+  left: calc(50% - 72px);
+  top: 55px;
+  animation: bloomFloat 4s ease-in-out infinite;
+}
+
+.petal {
+  position: absolute;
+  width: 39px;
+  height: 76px;
+  left: 53px;
+  top: 0;
+  border-radius: 75% 75% 48% 48%;
+  transform-origin: 50% 72px;
+  background: #c5a8d8;
+  border: 1px solid rgba(104,44,70,.12);
+}
+
+.petal:nth-child(2) {
+  transform: rotate(60deg);
+  background: #d9c9eb;
+}
+
+.petal:nth-child(3) {
+  transform: rotate(120deg);
+  background: #b99bd0;
+}
+
+.petal:nth-child(4) {
+  transform: rotate(180deg);
+  background: #d9c9eb;
+}
+
+.petal:nth-child(5) {
+  transform: rotate(240deg);
+  background: #c9b0df;
+}
+
+.petal:nth-child(6) {
+  transform: rotate(300deg);
+  background: #e5d8ef;
+}
+
+.flower-center {
+  position: absolute;
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  background: var(--yellow);
+  left: 59px;
+  top: 58px;
+  border: 3px solid #f7f0fa;
+}
+
+.lily {
+  position: absolute;
+  right: 37px;
+  top: 115px;
+  width: 100px;
+  height: 100px;
+  transform: rotate(23deg);
+}
+
+.lily i {
+  position: absolute;
+  width: 24px;
+  height: 57px;
+  left: 38px;
+  top: 0;
+  border-radius: 80% 80% 45% 45%;
+  background: #f0d9df;
+  transform-origin: 50% 50px;
+  border: 1px solid rgba(104,44,70,.12);
+}
+
+.lily i:nth-child(2) { transform: rotate(72deg); }
+.lily i:nth-child(3) { transform: rotate(144deg); }
+.lily i:nth-child(4) { transform: rotate(216deg); }
+.lily i:nth-child(5) { transform: rotate(288deg); }
+
+.lily b {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #b7836e;
+  top: 43px;
+  left: 45px;
+}
+
+.flower-copy p {
+  color: var(--brown);
+  max-width: 420px;
+}
+
+.hand-note {
+  color: var(--burgundy);
+  font: 600 1.7rem var(--hand);
+  margin-top: 23px;
+}
+
+/* Reveal cards */
+
+.reveal-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 13px;
+}
+
+.reveal-card {
+  min-height: 145px;
+  text-align: left;
+  padding: 21px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fffdf9;
+  cursor: pointer;
+  color: var(--ink);
+  transition: transform .2s, border-color .2s, background .2s;
+}
+
+.reveal-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--wisteria);
+}
+
+.reveal-card .number {
+  color: var(--brown);
+  font-size: .68rem;
+  letter-spacing: .16em;
+}
+
+.reveal-card .card-title {
+  display: block;
+  font-family: var(--serif);
+  color: var(--burgundy);
+  font-size: 1.35rem;
+  margin: 8px 0;
+}
+
+.reveal-card .card-message {
+  display: block;
+  color: var(--brown);
+  font-size: .9rem;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height .35s ease, opacity .3s ease, margin .3s ease;
+}
+
+.reveal-card.open {
+  background: #f8f2fb;
+  border-color: var(--wisteria);
+}
+
+.reveal-card.open .card-message {
+  max-height: 180px;
+  opacity: 1;
+  margin-top: 12px;
+}
+
+.reveal-card .tap-hint {
+  font-size: .75rem;
+  color: #a28d9a;
+}
+
+.reveal-card.open .tap-hint {
+  display: none;
+}
+
+/* Final birthday page */
+
+.finale {
+  text-align: center;
+  padding-bottom: 110px;
+}
+
+.finale h2 { margin-bottom: 18px; }
+
+.finale .final-message {
+  max-width: 580px;
+  margin: 0 auto;
+  color: var(--brown);
+}
+
+.cake {
+  width: 160px;
+  height: 150px;
+  margin: 42px auto 10px;
+  position: relative;
+}
+
+.cake-base {
+  position: absolute;
+  bottom: 15px;
+  left: 20px;
+  width: 120px;
+  height: 66px;
+  background: #d8bddf;
+  border: 2px solid #b99bc8;
+  border-radius: 9px 9px 15px 15px;
+}
+
+.cake-base:before {
+  content: "";
+  position: absolute;
+  top: 14px;
+  left: 0;
+  width: 100%;
+  height: 12px;
+  background: #fff4d4;
+  border-radius: 50%;
+}
+
+.cake-top {
+  position: absolute;
+  bottom: 79px;
+  left: 20px;
+  width: 120px;
+  height: 25px;
+  background: #f0dce8;
+  border: 2px solid #b99bc8;
+  border-radius: 50%;
+}
+
+.candle {
+  position: absolute;
+  width: 7px;
+  height: 32px;
+  background: var(--yellow);
+  border: 1px solid #d9c77e;
+  bottom: 99px;
+  left: 77px;
+  border-radius: 4px 4px 1px 1px;
+}
+
+.flame {
+  position: absolute;
+  width: 13px;
+  height: 18px;
+  background: #e8b75f;
+  border-radius: 80% 20% 80% 20%;
+  transform: rotate(45deg);
+  bottom: 128px;
+  left: 74px;
+  animation: flicker .8s ease-in-out infinite alternate;
+}
+
+.wish-btn { margin-top: 22px; }
+
+.wish-status {
+  min-height: 28px;
+  color: var(--burgundy);
+  font: 600 1.5rem var(--hand);
+  margin-top: 15px;
+}
+
+footer {
+  text-align: center;
+  padding: 26px 18px 38px;
+  color: #a18d82;
+  font-size: .76rem;
+}
+
+.confetti {
+  position: fixed;
+  z-index: 30;
+  top: -15px;
+  width: 8px;
+  height: 12px;
+  pointer-events: none;
+  animation: fall 2.7s ease-in forwards;
+  border-radius: 2px;
+}
+
+@keyframes gentleTurn {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes bloomFloat {
+  0%,100% { transform: translateY(0) rotate(-3deg); }
+  50% { transform: translateY(-7px) rotate(3deg); }
+}
+
+@keyframes flicker {
+  from { transform: rotate(40deg) scale(.9); }
+  to { transform: rotate(52deg) scale(1.08); }
+}
+
+@keyframes fall {
+  to {
+    transform: translate3d(var(--drift), 105vh, 0) rotate(680deg);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 650px) {
+  .topbar { padding: 12px 18px; }
+  .topbar small { display: none; }
+
+  main { width: min(100% - 34px, 540px); }
+
+  .fact-grid,
+  .reveal-grid,
+  .flower-section {
+    grid-template-columns: 1fr;
+  }
+
+  .fact-card:nth-child(5) { grid-column: auto; }
+
+  .flower-art {
+    min-height: 310px;
+    order: 2;
+  }
+
+  .flower-copy { order: 1; }
+
+  section:not(.welcome) { padding: 72px 0; }
+
+  .letter { transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *:before,
+  *:after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- WELCOME SCREEN -->
+
+<section class="welcome" id="welcome" aria-label="Birthday welcome">
+
+  <span class="tiny-star star-a">✳</span>
+  <span class="tiny-star star-b">✧</span>
+
+  <div class="welcome-inner">
+
+    <div class="welcome-flower" aria-hidden="true">
+      <i></i><i></i><i></i><i></i><i></i><b></b>
+    </div>
+
+    <div class="eyebrow">a small birthday corner, just for you</div>
+
+    <h1>oh, hi nie!</h1>
+
+    <p>today is a little more special because it's yours.</p>
+
+    <p class="date">NOVEMBER 26, 2010</p>
+
+    <button class="primary-btn" id="openSite">
+      open your birthday surprise <span aria-hidden="true">♡</span>
+    </button>
+
+  </div>
+</section>
+
+
+<!-- MAIN WEBSITE -->
+
+<div class="site hidden" id="site">
+
+  <nav class="topbar">
+    <a class="brand" href="#welcome">a little something for nie ♡</a>
+    <small>made with love, and probably too many edits</small>
+  </nav>
+
+  <main>
+
+    <!-- BIRTHDAY LETTER -->
+
+    <section id="note">
+
+      <div class="letter-wrap">
+
+        <div class="section-kicker">01 / a note for you</div>
+
+        <h2>before anything else...</h2>
+
+        <article class="letter">
+
+          <p class="salutation">hi, nie!</p>
+
+          <p>
+            Happy birthday! I hope you know how loved and appreciated you are.
+            I made this little corner of the internet because you deserve
+            something that feels like it was made just for you.
+          </p>
+
+          <p>And here's where I get to say the things I actually want to tell you:</p>
+
+          <div
+            class="editable"
+            contenteditable="true"
+            role="textbox"
+            aria-label="Your personal birthday message"
+            data-placeholder="Write your own message here. Click this space and make it yours..."
+          ></div>
+
+          <p>I hope today is kind to you. Have the best time, okay?</p>
+
+          <div class="signature" contenteditable="true" aria-label="Editable signature">
+            kate, jai &amp; eisha ♡
+          </div>
+
+        </article>
+      </div>
+    </section>
+
+
+    <!-- NIE FACT FILE -->
+
+    <section id="facts">
+
+      <div class="section-kicker">02 / the nie fact file</div>
+
+      <h2>things we know<br>and love about nie</h2>
+
+      <p class="intro">
+        A very important collection of very important Nie-related information.
+      </p>
+
+      <div class="fact-grid">
+
+        <article class="fact-card">
+          <h3>food</h3>
+          <div class="tag-list">
+            <span class="tag">Jollibee Yumburger</span>
+            <span class="tag">McDonald's Peach Mango Pie</span>
+            <span class="tag">Adobong Manok</span>
+            <span class="tag">Garlic Shrimp</span>
+            <span class="tag">S&amp;R Garlic Shrimp Pizza</span>
+          </div>
+        </article>
+
+        <article class="fact-card">
+          <h3>drinks</h3>
+          <div class="tag-list">
+            <span class="tag">Coke</span>
+            <span class="tag">Dutch Mill</span>
+            <span class="tag">Iced Caramel Macchiato</span>
+            <span class="tag">Water</span>
+          </div>
+        </article>
+
+        <article class="fact-card">
+          <h3>flowers</h3>
+          <div class="tag-list">
+            <span class="tag">Tiger Lily</span>
+            <span class="tag">Oriental Lily</span>
+            <span class="tag">Peonies</span>
+          </div>
+        </article>
+
+        <article class="fact-card">
+          <h3>on repeat</h3>
+          <div class="tag-list">
+            <span class="tag">Mahika</span>
+            <span class="tag">SZA</span>
+            <span class="tag">Rex Orange County</span>
+          </div>
+        </article>
+
+        <article class="fact-card">
+          <h3>movie nights</h3>
+          <div class="tag-list">
+            <span class="tag">10 Things I Hate About You</span>
+            <span class="tag">The Greatest Showman</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+
+    <!-- FLOWER SECTION -->
+
+    <section id="flower">
+
+      <div class="flower-section">
+
+        <div class="flower-copy">
+
+          <div class="section-kicker">03 / a little flower for you</div>
+
+          <h2>if you were<br>a flower...</h2>
+
+          <p>
+            I'd have a hard time choosing just one. Something bright and a
+            little unexpected like a tiger lily, something soft like an
+            oriental lily, and a whole bunch of peonies because one bloom
+            simply wouldn't be enough.
+          </p>
+
+          <p>
+            So here's a tiny bunch, made of shapes and a little bit of code,
+            just for your birthday.
+          </p>
+
+          <div class="hand-note">keep blooming, nie ♡</div>
+
+        </div>
+
+        <div class="flower-art" role="img" aria-label="A handmade CSS bouquet">
+
+          <div class="stems"></div>
+
+          <div class="bloom">
+            <i class="petal"></i>
+            <i class="petal"></i>
+            <i class="petal"></i>
+            <i class="petal"></i>
+            <i class="petal"></i>
+            <i class="petal"></i>
+            <b class="flower-center"></b>
+          </div>
+
+          <div class="lily">
+            <i></i><i></i><i></i><i></i><i></i><b></b>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- INTERACTIVE MESSAGES -->
+
+    <section id="open-when">
+
+      <div class="section-kicker">04 / little things to open</div>
+
+      <h2>just a few things...</h2>
+
+      <p class="intro">
+        Pick a card. No order, no rules. You can open them whenever you like.
+      </p>
+
+      <div class="reveal-grid">
+
+        <button class="reveal-card" type="button" aria-expanded="false">
+          <span class="number">NOTE NO. 01</span>
+          <span class="card-title">a little reminder</span>
+          <span class="tap-hint">tap to open ↗</span>
+          <span class="card-message">
+            You don't have to have everything figured out. Give yourself
+            room to learn, rest, and enjoy the little things. You're doing fine.
+          </span>
+        </button>
+
+        <button class="reveal-card" type="button" aria-expanded="false">
+          <span class="number">NOTE NO. 02</span>
+          <span class="card-title">for your smile</span>
+          <span class="tap-hint">tap to open ↗</span>
+          <span class="card-message">
+            This is your official reminder to get yourself a Yumburger or
+            Peach Mango Pie. Birthday rules. I don't make them.
+          </span>
+        </button>
+
+        <button class="reveal-card" type="button" aria-expanded="false">
+          <span class="number">NOTE NO. 03</span>
+          <span class="card-title">a birthday wish</span>
+          <span class="tap-hint">tap to open ↗</span>
+          <span class="card-message">
+            I hope this year brings you good people, happy surprises,
+            new experiences, and plenty of reasons to be proud of yourself.
+          </span>
+        </button>
+
+        <button class="reveal-card" type="button" aria-expanded="false">
+          <span class="number">NOTE NO. 04</span>
+          <span class="card-title">one last thing</span>
+          <span class="tap-hint">tap to open ↗</span>
+          <span class="card-message">
+            Thank you for being you, Nie. I'm glad I get to know you.
+            Here's to more memories and more stories we'll laugh about later.
+          </span>
+        </button>
+
+      </div>
+    </section>
+
+
+    <!-- FINAL PAGE -->
+
+    <section class="finale" id="final">
+
+      <div class="section-kicker">05 / the last little page</div>
+
+      <h2>and that's all for now!</h2>
+
+      <p class="final-message">
+        happy birthday, nie. i hope 16 treats you well. enjoy your day,
+        eat your favorites, and make lots of memories. you deserve a good year.
+      </p>
+
+      <div class="cake" aria-label="A small birthday cake illustration" role="img">
+
+        <div class="cake-base"></div>
+        <div class="cake-top"></div>
+        <div class="candle"></div>
+        <div class="flame" id="flame"></div>
+
+      </div>
+
+      <button class="primary-btn wish-btn" id="wishButton">
+        make a wish ♡
+      </button>
+
+      <div class="wish-status" id="wishStatus" aria-live="polite"></div>
+
+    </section>
+
+  </main>
+
+  <footer>made for nie, with a little extra care ♡</footer>
+
+</div>
+
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+  // Opening the birthday surprise
+
+  const openButton = document.getElementById('openSite');
+  const welcome = document.getElementById('welcome');
+  const site = document.getElementById('site');
+
+  openButton.addEventListener('click', () => {
+
+    welcome.style.display = 'none';
+
+    site.classList.remove('hidden');
+
+    requestAnimationFrame(() => {
+      site.classList.add('visible');
+    });
+
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+
+  });
+
+
+  // Independently opening and closing message cards
+
+  document.querySelectorAll('.reveal-card').forEach(card => {
+
+    card.addEventListener('click', () => {
+
+      const isOpen = card.classList.toggle('open');
+
+      card.setAttribute('aria-expanded', String(isOpen));
+
+    });
+
+  });
+
+
+  // Birthday wish and confetti animation
+
+  const wishButton = document.getElementById('wishButton');
+  const wishStatus = document.getElementById('wishStatus');
+  const flame = document.getElementById('flame');
+
+  let wished = false;
+
+  wishButton.addEventListener('click', () => {
+
+    if (wished) return;
+
+    wished = true;
+
+    flame.style.opacity = '0';
+
+    wishStatus.textContent =
+      'wish sent. make this year a good one! ♡';
+
+    wishButton.textContent = 'wish made ♡';
+
+    wishButton.disabled = true;
+    wishButton.style.opacity = '.75';
+
+    const colors = [
+      '#D9C9EB',
+      '#B9A1D4',
+      '#682C46',
+      '#F5E9A9',
+      '#E8C7D2'
+    ];
+
+    for (let i = 0; i < 65; i++) {
+
+      const bit = document.createElement('span');
+
+      bit.className = 'confetti';
+
+      bit.style.left = Math.random() * 100 + 'vw';
+
+      bit.style.background =
+        colors[Math.floor(Math.random() * colors.length)];
+
+      bit.style.setProperty(
+        '--drift',
+        (Math.random() * 180 - 90) + 'px'
+      );
+
+      bit.style.animationDelay =
+        (Math.random() * .55) + 's';
+
+      bit.style.transform =
+        `rotate(${Math.random() * 180}deg)`;
+
+      document.body.appendChild(bit);
+
+      bit.addEventListener('animationend', () => {
+        bit.remove();
+      });
+
+    }
+
+  });
+
+</script>
+
+</body>
+</html>
